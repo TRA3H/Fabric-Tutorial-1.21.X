@@ -32,6 +32,14 @@ object ModBlocks {
         )
     )
 
+    val MAGIC_BLOCK: Block = registerBlock(
+        name = "magic_block",
+        block = Block(AbstractBlock.Settings.create()
+            .strength(1f)
+            .requiresTool()
+        )
+    )
+
     val PINK_GARNET_ORE: Block = registerBlock(
         name = "pink_garnet_ore",
         ExperienceDroppingBlock(UniformIntProvider.create(2,5),

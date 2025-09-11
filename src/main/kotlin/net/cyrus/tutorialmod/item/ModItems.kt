@@ -1,6 +1,7 @@
 package net.cyrus.tutorialmod.item
 
 import net.cyrus.tutorialmod.TutorialMod
+import net.cyrus.tutorialmod.item.custom.ChiselItem
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroups
@@ -11,6 +12,8 @@ import net.minecraft.registry.Registry
 object ModItems {
     val PINK_GARNET: Item = registerItem("pink_garnet", Item(Item.Settings()))
     val RAW_PINK_GARNET: Item = registerItem("raw_pink_garnet", Item(Item.Settings()))
+
+    val CHISEL: Item = registerItem("chisel", ChiselItem(Item.Settings().maxDamage(32)))
 
     fun registerModItems() {
         TutorialMod.LOGGER.info("Registering Mod Items for " + TutorialMod.MOD_ID)
