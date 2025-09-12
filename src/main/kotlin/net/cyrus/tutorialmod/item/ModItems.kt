@@ -14,6 +14,9 @@ object ModItems {
     val RAW_PINK_GARNET: Item = registerItem("raw_pink_garnet", Item(Item.Settings()))
 
     val CHISEL: Item = registerItem("chisel", ChiselItem(Item.Settings().maxDamage(32)))
+    val CAULIFLOWER: Item = registerItem("cauliflower", Item(Item.Settings().food(ModFoodComponent.CAULTIFLOWER)))
+
+    val STARLIGHT_ASHES = registerItem("starlight_ashes", Item(Item.Settings()))
 
     fun registerModItems() {
         TutorialMod.LOGGER.info("Registering Mod Items for " + TutorialMod.MOD_ID)

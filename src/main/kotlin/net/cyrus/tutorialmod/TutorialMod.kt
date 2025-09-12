@@ -4,6 +4,7 @@ import net.cyrus.tutorialmod.block.ModBlocks
 import net.cyrus.tutorialmod.item.ModItemGroups
 import net.fabricmc.api.ModInitializer
 import net.cyrus.tutorialmod.item.ModItems
+import net.fabricmc.fabric.api.registry.FuelRegistry
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -17,5 +18,7 @@ object TutorialMod : ModInitializer {
 
 		ModItems.registerModItems()
 		ModBlocks.registerModBlocks()
+
+		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600)
 	}
 }
