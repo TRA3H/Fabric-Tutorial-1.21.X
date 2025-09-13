@@ -4,13 +4,17 @@ package net.cyrus.tutorialmod.item.custom
 import net.cyrus.tutorialmod.block.ModBlocks
 import net.minecraft.block.Block
 import net.minecraft.block.Blocks
+import net.minecraft.client.gui.screen.Screen
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.item.Item
+import net.minecraft.item.ItemStack
 import net.minecraft.item.ItemUsageContext
+import net.minecraft.item.tooltip.TooltipType
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundCategory
 import net.minecraft.sound.SoundEvents
+import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
 import net.minecraft.world.World
 
@@ -48,4 +52,15 @@ class ChiselItem(settings: Item.Settings) : Item(settings) {
 
         return ActionResult.SUCCESS
     }
+
+    override fun appendTooltip(stack: ItemStack, context: TooltipContext, tooltip: MutableList<Text>, type: TooltipType) {
+        if(Screen.hasShiftDown()){
+            tooltip.add(Text.translatable("tooltip.tutorial.chisel.shift_down"))
+        } else {
+            tooltip.add(Text.translatable("tooltip.tutorial.chisel"))
+        }
+
+        super.appendTooltip(stack, context, tooltip, type)
+    }
+
 }
