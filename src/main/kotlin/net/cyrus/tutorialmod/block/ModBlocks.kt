@@ -4,7 +4,18 @@ import net.minecraft.block.Block
 import net.cyrus.tutorialmod.TutorialMod
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.block.AbstractBlock
+import net.minecraft.block.BlockSetType
+import net.minecraft.block.ButtonBlock
+import net.minecraft.block.DoorBlock
 import net.minecraft.block.ExperienceDroppingBlock
+import net.minecraft.block.FenceBlock
+import net.minecraft.block.FenceGateBlock
+import net.minecraft.block.PressurePlateBlock
+import net.minecraft.block.SlabBlock
+import net.minecraft.block.StairsBlock
+import net.minecraft.block.TrapdoorBlock
+import net.minecraft.block.WallBlock
+import net.minecraft.block.WoodType
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroups
@@ -55,6 +66,70 @@ object ModBlocks {
                 .strength(4f)
                 .requiresTool()
                 .sounds(BlockSoundGroup.DEEPSLATE)
+        )
+    )
+
+    val PINK_GARNET_STAIRS: Block = registerBlock(
+        name = "pink_garnet_stairs",
+        block = StairsBlock(PINK_GARNET_BLOCK.defaultState,
+            AbstractBlock.Settings.create().strength(2f).requiresTool()
+        )
+    )
+
+    val PINK_GARNET_SLAB: Block = registerBlock(
+        name = "pink_garnet_slab",
+        block = SlabBlock(
+            AbstractBlock.Settings.create().strength(2f).requiresTool()
+        )
+    )
+
+    val PINK_GARNET_BUTTON: Block = registerBlock(
+        name = "pink_garnet_button",
+        ButtonBlock(
+            BlockSetType.IRON, 2,
+            AbstractBlock.Settings.create().strength(2f).requiresTool().noCollision()
+        )
+    )
+
+    val PINK_GARNET_PRESSURE_PLATE: Block = registerBlock(
+        name = "pink_garnet_plate",
+        PressurePlateBlock(BlockSetType.IRON,
+            AbstractBlock.Settings.create().strength(2f).requiresTool()
+        )
+    )
+
+    val PINK_GARNET_FENCE: Block = registerBlock(
+        name = "pink_garnet_fence",
+        FenceBlock(
+            AbstractBlock.Settings.create().strength(2f).requiresTool()
+        )
+    )
+
+    val PINK_GARNET_WALL: Block = registerBlock(
+        name = "pink_garnet_wall",
+        WallBlock(
+            AbstractBlock.Settings.create().strength(2f).requiresTool()
+        )
+    )
+
+    val PINK_GARNET_DOOR: Block = registerBlock(
+        name = "pink_garnet_door",
+        DoorBlock(BlockSetType.IRON,
+            AbstractBlock.Settings.create().strength(2f).requiresTool()
+        )
+    )
+
+    val PINK_GARNET_TRAPDOOR: Block = registerBlock(
+        name = "pink_garnet_trapdoor",
+        TrapdoorBlock(BlockSetType.IRON,
+            AbstractBlock.Settings.create().strength(2f).requiresTool().nonOpaque()
+        )
+    )
+
+    val PINK_GARNET_FENCE_GATE: Block = registerBlock(
+        name = "pink_garnet_fence_gate",
+        FenceGateBlock(WoodType.ACACIA,
+            AbstractBlock.Settings.create().strength(2f).requiresTool()
         )
     )
 

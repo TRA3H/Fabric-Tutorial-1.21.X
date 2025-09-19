@@ -64,6 +64,8 @@ java {
 	targetCompatibility = JavaVersion.VERSION_21
 }
 
+
+
 jar {
 	inputs.property "archivesName", project.base.archivesName
 
