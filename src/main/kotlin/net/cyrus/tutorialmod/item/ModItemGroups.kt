@@ -51,6 +51,8 @@ object ModItemGroups {
                 entries.add(ModBlocks.PINK_GARNET_WALL)
                 entries.add(ModBlocks.PINK_GARNET_DOOR)
                 entries.add(ModBlocks.PINK_GARNET_TRAPDOOR)
+
+                entries.add(ModBlocks.PINK_GARNET_LAMP)
             }
             .build()
     )

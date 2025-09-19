@@ -1,12 +1,16 @@
 package net.cyrus.tutorialmod.datagen
 
 import net.cyrus.tutorialmod.block.ModBlocks
+import net.cyrus.tutorialmod.block.custom.PinkGarnetLampBlock
 import net.cyrus.tutorialmod.item.ModItems
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
 import net.minecraft.data.client.BlockStateModelGenerator
 import net.minecraft.data.client.ItemModelGenerator
 import net.minecraft.data.client.Models
+import net.minecraft.data.client.TextureMap
+import net.minecraft.data.client.TexturedModel
+import net.minecraft.data.client.VariantsBlockStateSupplier
 
 class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
     override fun generateBlockStateModels(blockStateModelGenerator: BlockStateModelGenerator) {
@@ -30,6 +34,34 @@ class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
 
         blockStateModelGenerator.registerDoor(ModBlocks.PINK_GARNET_DOOR)
         blockStateModelGenerator.registerTrapdoor(ModBlocks.PINK_GARNET_TRAPDOOR)
+
+
+
+        val lampOffId = TexturedModel.CUBE_ALL.upload(
+            ModBlocks.PINK_GARNET_LAMP,
+            blockStateModelGenerator.modelCollector
+        )
+
+
+        val lampOnId = blockStateModelGenerator.createSubModel(
+            ModBlocks.PINK_GARNET_LAMP,
+            "_on",
+            Models.CUBE_ALL,
+            TextureMap::all
+        )
+
+
+        blockStateModelGenerator.blockStateCollector.accept(
+            VariantsBlockStateSupplier.create(ModBlocks.PINK_GARNET_LAMP)
+                .coordinate(
+                    BlockStateModelGenerator.createBooleanModelMap(
+                        PinkGarnetLampBlock.CLICKED,
+                        lampOnId,
+                        lampOffId
+                    )
+                )
+        )
+
 
     }
 

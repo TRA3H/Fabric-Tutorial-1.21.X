@@ -2,6 +2,7 @@ package net.cyrus.tutorialmod.block
 
 import net.minecraft.block.Block
 import net.cyrus.tutorialmod.TutorialMod
+import net.cyrus.tutorialmod.block.custom.PinkGarnetLampBlock
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.block.AbstractBlock
 import net.minecraft.block.BlockSetType
@@ -130,6 +131,16 @@ object ModBlocks {
         name = "pink_garnet_fence_gate",
         FenceGateBlock(WoodType.ACACIA,
             AbstractBlock.Settings.create().strength(2f).requiresTool()
+        )
+    )
+
+    val PINK_GARNET_LAMP: Block = registerBlock(
+        name = "pink_garnet_lamp",
+        block = PinkGarnetLampBlock(AbstractBlock.Settings.create()
+            .strength(1f)
+            .requiresTool()
+            .luminance { state -> if(state.get(PinkGarnetLampBlock.CLICKED)) 15 else 0 }
+
         )
     )
 
