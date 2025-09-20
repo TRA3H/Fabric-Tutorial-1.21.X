@@ -11,6 +11,7 @@ import net.minecraft.data.client.Models
 import net.minecraft.data.client.TextureMap
 import net.minecraft.data.client.TexturedModel
 import net.minecraft.data.client.VariantsBlockStateSupplier
+import net.minecraft.item.ArmorItem
 
 class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
     override fun generateBlockStateModels(blockStateModelGenerator: BlockStateModelGenerator) {
@@ -62,6 +63,10 @@ class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
                 )
         )
 
+        // inventory model for the lamp item (use the OFF model)
+        blockStateModelGenerator.registerParentedItemModel(
+            ModBlocks.PINK_GARNET_LAMP, lampOffId
+        )
 
     }
 
@@ -72,5 +77,18 @@ class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
         itemModelGenerator.register(ModItems.CAULIFLOWER, Models.GENERATED)
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED)
         itemModelGenerator.register(ModItems.STARLIGHT_ASHES, Models.GENERATED)
+
+        itemModelGenerator.register(ModItems.PINK_GARNET_SWORD, Models.HANDHELD)
+        itemModelGenerator.register(ModItems.PINK_GARNET_PICKAXE, Models.HANDHELD)
+        itemModelGenerator.register(ModItems.PINK_GARNET_AXE, Models.HANDHELD)
+        itemModelGenerator.register(ModItems.PINK_GARNET_SHOVEL, Models.HANDHELD)
+        itemModelGenerator.register(ModItems.PINK_GARNET_HOE, Models.HANDHELD)
+
+        itemModelGenerator.register(ModItems.PINK_GARNET_HAMMER, Models.HANDHELD)
+
+        itemModelGenerator.registerArmor(ModItems.PINK_GARNET_HELMET as ArmorItem)
+        itemModelGenerator.registerArmor(ModItems.PINK_GARNET_CHESTPLATE as ArmorItem)
+        itemModelGenerator.registerArmor(ModItems.PINK_GARNET_LEGGINGS as ArmorItem)
+        itemModelGenerator.registerArmor(ModItems.PINK_GARNET_BOOTS as ArmorItem)
     }
 }

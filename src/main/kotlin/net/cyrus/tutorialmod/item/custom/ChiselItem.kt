@@ -2,6 +2,7 @@ package net.cyrus.tutorialmod.item.custom
 
 
 import net.cyrus.tutorialmod.block.ModBlocks
+import net.cyrus.tutorialmod.component.ModDataComponentTypes
 import net.minecraft.block.Block
 import net.minecraft.block.Blocks
 import net.minecraft.client.gui.screen.Screen
@@ -48,6 +49,8 @@ class ChiselItem(settings: Item.Settings) : Item(settings) {
             }
 
             world.playSound(null, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS)
+
+            context.stack.set(ModDataComponentTypes.COORDINATES, context.blockPos)
         }
 
         return ActionResult.SUCCESS
@@ -58,6 +61,10 @@ class ChiselItem(settings: Item.Settings) : Item(settings) {
             tooltip.add(Text.translatable("tooltip.tutorial.chisel.shift_down"))
         } else {
             tooltip.add(Text.translatable("tooltip.tutorial.chisel"))
+        }
+
+        if(stack.get(ModDataComponentTypes.COORDINATES) != null) {
+            tooltip.add(Text.literal("Last Block Changed at " + stack.get(ModDataComponentTypes.COORDINATES)))
         }
 
         super.appendTooltip(stack, context, tooltip, type)

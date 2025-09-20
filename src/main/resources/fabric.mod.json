@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "tutorial-mod",
+	"id": "tutorialmod",
 	"version": "${version}",
 	"name": "Tutorial Mod",
 	"description": "Tutorial Mod by Cyrus",
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/TRA3H/Fabric-Tutorial-1.21.X"
 	},
 	"license": "MIT",
-	"icon": "assets/tutorial-mod/icon.png",
+	"icon": "assets/tutorialmod/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
